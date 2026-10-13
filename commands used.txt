@@ -1,0 +1,20 @@
+winget install Microsoft.WindowsTerminal // already installed
+winget install Microsoft.Bicep
+winget install Microsoft.AzureCLI // already installed
+winget install Microsoft.AzureStorageExplorer
+winget install GitExtensionsTeam.GitExtensions // don't need, have source tree
+winget install Microsoft.SqlServerManagementStudio
+
+// skipped, superseeded by ms-azuretools.vscode-azureresourcegroups & ms-azuretools.vscode-azurefunctions
+code --install-extension ms-vscode.azure-account
+code --install-extension ms-azuretools.vscode-bicep
+code --install-extension ms-vscode.azurecli
+
+// If you close this windows, start it again with ctrl+shift+p Powershell: restart session
+code --install-extension ms-vscode.powershell
+code --install-extension ms-vscode.vscode-node-azure-pack
+
+// powershell admin session:
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+Install-Module -Name Az -Repository PSGallery -Scope CurrentUser -Force
+Install-Module Microsoft.Graph
