@@ -33,3 +33,5 @@ az account set --subscription "<subscription name or id>"
 az deployment group create --resource-group rg-bicep-test --template-file main.bicep --parameters adminUsername=azureuser
 
 connect-azaccount -SubscriptionId $SubscriptionId -tenantId $tenantId
+
+az deployment sub create --location australiaeast --template-file main.bicep

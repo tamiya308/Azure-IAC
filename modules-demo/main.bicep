@@ -1,5 +1,5 @@
 // =============================================================================
-// storage-rg.bicep - create 2 resource groups, each with its own storage account,
+// main.bicep       - create 2 resource groups, each with its own storage account,
 //                    plus an app registration and a Linux App Service in rg1
 // =============================================================================
 //
@@ -10,7 +10,7 @@
 //   modules/rg1.bicep      -> storage account + app registration + Linux
 //                             App Service that signs users in via the app
 //                             registration (into rg1)
-//   modules/storage.bicep  -> storage account (into rg2)
+//   modules/rg2.bicep      -> storage account (into rg2)
 //
 // The app registration (in modules/rg1.bicep) uses the Microsoft Graph Bicep
 // extension, set up in bicepconfig.json. Its deployment is recorded in rg1,
@@ -18,7 +18,7 @@
 // You need permission to register apps in your tenant.
 //
 // DEPLOY (from the modules-demo folder)
-//   az deployment sub create --location australiaeast --template-file storage-rg.bicep
+//   az deployment sub create --location australiaeast --template-file main.bicep
 //
 //   Note: --location here is only where Azure stores the deployment record;
 //   the resources use the 'location' parameter below.
@@ -78,7 +78,7 @@ module rg2Resources 'modules/rg2.bicep' = {
   }
 }
 
-output storageAccount1 string = rg1Resources.outputs.storageAccountName
-output storageAccount2 string = rg2Resources.outputs.storageAccountName
-output appId string = rg1Resources.outputs.appId
-output webAppUrl string = rg1Resources.outputs.webAppUrl
+// output storageAccount1 string = rg1Resources.outputs.storageAccountName
+// output storageAccount2 string = rg2Resources.outputs.storageAccountName
+// output appId string = rg1Resources.outputs.appId
+// output webAppUrl string = rg1Resources.outputs.webAppUrl
