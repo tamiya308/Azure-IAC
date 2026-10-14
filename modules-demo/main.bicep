@@ -70,7 +70,7 @@ module rg1Resources 'modules/rg1.bicep' = {
 // --- Module 2: storage account in resource group 2 --------------------------
 
 module rg2Resources 'modules/rg2.bicep' = {
-  name: 'storage2Deploy'
+  name: 'rg2Deploy'
   scope: rg2                     // <- deploy this module into rg2
   params: {
     storageAccountName: 'st2${uniqueString(rg2.id)}'

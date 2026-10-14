@@ -29,9 +29,17 @@ azlogin
 // set permeantly
 az account set --subscription "<subscription name or id>"
 
-// compile to json & to azure
+// compile to json & deploy to azure
 az deployment group create --resource-group rg-bicep-test --template-file main.bicep --parameters adminUsername=azureuser
 
 connect-azaccount -SubscriptionId $SubscriptionId -tenantId $tenantId
 
+
+// Creates An empty resource group only
+az group create
+
+// Old depricated command:
+az group deployment create --resource-group $grp --template-file .\script.bicep --mode Complete
+
+// New command:
 az deployment sub create --location australiaeast --template-file main.bicep
