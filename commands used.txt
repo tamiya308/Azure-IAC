@@ -18,3 +18,18 @@ code --install-extension ms-vscode.vscode-node-azure-pack
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
 Install-Module -Name Az -Repository PSGallery -Scope CurrentUser -Force
 Install-Module Microsoft.Graph
+
+az bicep install
+
+// conver file to json (not necessary)
+az bicep build --file main.bicep
+
+azlogin
+
+// set permeantly
+az account set --subscription "<subscription name or id>"
+
+// compile to json & to azure
+az deployment group create --resource-group rg-bicep-test --template-file main.bicep --parameters adminUsername=azureuser
+
+connect-azaccount -SubscriptionId $SubscriptionId -tenantId $tenantId
